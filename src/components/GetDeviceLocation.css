@@ -1,0 +1,18 @@
+.GetDeviceLocation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.GetDeviceLocation button {
+    width: 90%;
+    height: 3rem;
+    border: 0;
+    font-weight: bold;
+    font-size: large;
+    background-color: blueviolet;
+    color: white;
+    border-radius: 5px;
+
+}

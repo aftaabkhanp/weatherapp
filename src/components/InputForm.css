@@ -1,0 +1,64 @@
+.InputForm {
+    width: 33%;
+    min-height: 60%;
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.InputForm form {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+
+.InputForm form label {
+    font-size: large;
+}
+
+.InputForm form input {
+    height: 2rem;
+    border-radius: 5px;
+    border: 2px solid gray;
+}
+
+.InputForm form :focus {
+    outline-color: blueviolet;
+}
+
+.InputForm h3 {
+    margin: 0;
+}
+
+.InputForm form button {
+    height: 3rem;
+    border: 0;
+    background-color: blueviolet;
+    color: white;
+    font-weight: bold;
+    font-size: large;
+    border-radius: 5px;
+}
+
+#error {
+    color: red;
+    position: absolute;
+    margin-top: 25px;
+}
+
+.InputForm form button:disabled {
+    background-color: gray;
+}
+
+@media only screen and (max-width: 640px) {
+    .InputForm {
+        width: 80%;
+        height: 65%;
+    }
+}

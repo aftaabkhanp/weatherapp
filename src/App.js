@@ -1,23 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import InputForm from "./components/InputForm";
+import WeatherCard from "./components/WeatherCard";
+import spinner from "./assets/Rolling-1s-200px.gif";
 
 function App() {
+  const [isForm, setisForm] = useState(false);
+  const [weatherData, setWeatherData] = useState();
+  const [isLoading, setIsLoading] = useState(false);
+  const handleLoading = (status) => {
+    console.log("loading");
+    setIsLoading(status);
+  };
+  const handleToggleForm = () => {
+    setisForm((prev) => !prev);
+  };
+  const handleWeather = (data) => {
+    setWeatherData(data);
+    setisForm((prev) => !prev);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {!isLoading && !isForm && (
+        <InputForm fetchWeather={handleWeather} handleLoading={handleLoading} />
+      )}
+      {!isLoading && isForm && (
+        <WeatherCard
+          handleToggleForm={handleToggleForm}
+          weatherData={weatherData}
+        />
+      )}
+      {isLoading && 
+      <div className="InputForm">
+        <img src={spinner} alt="spinning logo" className="spinner-gif"></img>
+        </div>}
     </div>
   );
 }
